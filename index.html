@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body{margin:0}[hidden]{display:none!important}#tab-certificates,#certificates,#cert-view,#cert-edit{display:none!important}</style>
+<title>Ethyl Joy Badiang</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Portfolio of Ethyl Joy I. Badiang, AI engineer and computer engineer: profile, publications, organizations, and certificates.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: "detection frame". The hero frames the name in a model's bounding box; a signal-light lane nav switches four sections (profile, publications, organizations, certificates); content runs in a 12-col grid with a mono time rail. */
+:root{
+  --bg:#eef1f3; --paper:#f8f9fa; --ink:#14181c; --muted:#56606b; --faint:#8a939c; --line:#d3d9de;
+  --box:#e8a800; --box-ink:#13110a; --box-text:#8a5c00; --go:#16875a; --stop:#d2453a;
+  --lane:#14181c; --lane-fg:#eef1f3;
+  --display:"Archivo","Arial Narrow",-apple-system,"Segoe UI",sans-serif;
+  --body:"Public Sans",-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111418; --paper:#181c21; --ink:#edf0f2; --muted:#a0a9b2; --faint:#6f7882; --line:#2a3037;
+  --box:#f5b700; --box-ink:#13110a; --box-text:#f5c94a; --go:#3cc68a; --stop:#ef6a5f; --lane:#07090b; --lane-fg:#edf0f2; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111418; --paper:#181c21; --ink:#edf0f2; --muted:#a0a9b2; --faint:#6f7882; --line:#2a3037;
+  --box:#f5b700; --box-ink:#13110a; --box-text:#f5c94a; --go:#3cc68a; --stop:#ef6a5f; --lane:#07090b; --lane-fg:#edf0f2; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit;text-decoration-color:var(--box);text-decoration-thickness:2px;text-underline-offset:3px}
+a:hover{color:var(--box-text)}
+:focus-visible{outline:2px solid var(--box);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.mono{font-family:var(--mono)}
+
+/* HERO */
+.hero{padding-block:56px 40px}
+.hero-top{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.frame{position:relative;margin-top:56px;display:inline-block;max-width:100%;padding:14px 22px 18px;border:2.5px solid var(--box)}
+.frame::before,.frame::after{content:"";position:absolute;width:12px;height:12px;background:var(--box)}
+.frame::before{left:-7px;bottom:-7px}.frame::after{right:-7px;bottom:-7px}
+.tag{position:absolute;left:-2.5px;bottom:100%;background:var(--box);color:var(--box-ink);font-family:var(--mono);font-size:12.5px;font-weight:500;padding:3px 9px;white-space:nowrap}
+.hero h1{font-family:var(--display);font-stretch:118%;font-weight:800;font-size:clamp(40px,8.4vw,100px);line-height:.95;letter-spacing:-.025em}
+.hero h1 span{display:block}
+.lede{margin-top:32px;max-width:58ch;font-size:clamp(17px,2vw,20px);line-height:1.5;color:var(--ink)}
+.lede b{font-weight:600}
+.hero-meta{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px 28px;font-size:14px;color:var(--muted);align-items:center}
+.hero-meta .now{display:flex;align-items:center;gap:8px;color:var(--ink)}
+.hero-meta .now i{width:9px;height:9px;border-radius:50%;background:var(--go);box-shadow:0 0 0 4px color-mix(in srgb,var(--go) 20%,transparent)}
+.email{display:inline-flex;align-items:center;gap:8px}
+.copy{appearance:none;border:1px solid var(--line);background:var(--paper);color:var(--muted);font:500 11px var(--mono);padding:2px 8px;cursor:pointer;border-radius:3px}
+.copy:hover{color:var(--ink);border-color:var(--ink)}
+
+/* LANE NAV */
+.lane{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--lane);color:var(--lane-fg)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--lane)}
+.lane .wrap{display:flex;align-items:stretch;gap:0;overflow-x:auto;scrollbar-width:none;position:relative}
+.lane .wrap::-webkit-scrollbar{display:none}
+.lane .wrap::after{content:"";position:absolute;left:max(16px,env(safe-area-inset-left,0px));right:max(16px,env(safe-area-inset-right,0px));bottom:0;height:2px;background:repeating-linear-gradient(90deg,var(--box) 0 22px,transparent 22px 40px);opacity:.55;pointer-events:none}
+.tab{appearance:none;background:none;border:0;color:inherit;opacity:.62;cursor:pointer;font:600 13px var(--display);font-stretch:112%;letter-spacing:.06em;text-transform:uppercase;padding:18px 22px 18px 0;display:flex;align-items:center;gap:10px;white-space:nowrap}
+.tab:hover{opacity:.9}
+.tab .lamp{width:10px;height:10px;border-radius:50%;background:var(--stop);opacity:.75;flex:none}
+.tab .n{font-family:var(--mono);font-weight:400;font-size:11px;letter-spacing:0;opacity:.7}
+.tab[aria-selected="true"]{opacity:1}
+.tab[aria-selected="true"] .lamp{background:var(--go);opacity:1;box-shadow:0 0 10px var(--go)}
+
+/* SECTIONS */
+main{padding-block:56px 72px}
+.panel{display:flex;flex-direction:column;gap:64px}
+.block{display:grid;grid-template-columns:200px minmax(0,1fr);gap:24px 48px}
+.block>h2{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:6px;border-top:2.5px solid var(--ink);align-self:start}
+.block>.body{min-width:0}
+.intro{font-family:var(--display);font-stretch:108%;font-weight:600;font-size:clamp(22px,2.7vw,30px);line-height:1.25;letter-spacing:-.01em;max-width:30ch}
+.intro em{font-style:normal;background:linear-gradient(transparent 62%,color-mix(in srgb,var(--box) 45%,transparent) 62%)}
+.prose{margin-top:20px;max-width:62ch;color:var(--muted)}
+.prose p+p{margin-top:12px}
+.tools{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.pill{font-family:var(--mono);font-size:12px;border:1px solid var(--line);padding:3px 10px;border-radius:999px;color:var(--muted);background:var(--paper)}
+
+/* rail list: date rail + content */
+.rail{list-style:none;margin:0;padding:0}
+.rail>li{display:grid;grid-template-columns:150px minmax(0,1fr);gap:4px 28px;padding:20px 0;border-top:1px solid var(--line)}
+.rail>li:first-child{border-top:0;padding-top:0}
+.rail .t{font-family:var(--mono);font-size:13px;color:var(--muted);padding-top:3px;font-variant-numeric:tabular-nums}
+.rail h3{font-family:var(--display);font-stretch:105%;font-weight:700;font-size:19px;line-height:1.3;letter-spacing:-.005em}
+.rail .at{font-size:14.5px;color:var(--muted);margin-top:2px}
+.rail .d{margin-top:8px;max-width:64ch;font-size:15px}
+.rail ul.pts{margin:8px 0 0;padding-left:18px;font-size:15px;display:flex;flex-direction:column;gap:3px}
+.rail ul.pts li::marker{color:var(--box)}
+.kind{display:inline-block;margin-bottom:6px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--box-text)}
+.kind.led{color:var(--go)}
+.chips{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px}
+.doi{display:inline-block;margin-top:10px;font-family:var(--mono);font-size:13px}
+
+/* featured (pinned) */
+.feature{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;background:var(--line);border:2px solid var(--line)}
+.feat{background:var(--paper);padding:22px 22px 24px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.feat .kind{margin:0}
+.feat h3{font-family:var(--display);font-stretch:105%;font-weight:700;font-size:18px;line-height:1.3}
+.feat p{font-size:14.5px;color:var(--muted);flex:1}
+.feat .foot{font-family:var(--mono);font-size:12px;color:var(--faint)}
+
+/* milestones as a road */
+.road{list-style:none;margin:0;padding:0 0 0 22px;position:relative}
+.road::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:repeating-linear-gradient(180deg,var(--ink) 0 10px,transparent 10px 18px)}
+.road>li{position:relative;padding-bottom:22px}
+.road>li:last-child{padding-bottom:0}
+.road>li::before{content:"";position:absolute;left:-22px;top:5px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2.5px solid var(--box)}
+.road .y{font-family:var(--display);font-stretch:118%;font-weight:800;font-size:22px;line-height:1.1}
+.road ul{margin:6px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:3px;font-size:15px;color:var(--muted)}
+
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.filters button{appearance:none;cursor:pointer;font:500 13px var(--body);padding:6px 14px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--muted)}
+.filters button:hover{border-color:var(--ink);color:var(--ink)}
+.filters button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+
+.figs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-bottom:8px}
+.fig b{display:block;font-family:var(--display);font-stretch:118%;font-weight:800;font-size:clamp(40px,5vw,56px);line-height:1;font-variant-numeric:tabular-nums}
+.fig span{display:block;margin-top:6px;font-size:14px;color:var(--muted);max-width:22ch}
+
+.orgs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.org{border:2px solid var(--ink);padding:24px;display:flex;flex-direction:column;gap:12px;background:var(--paper);min-width:0}
+.org .seal{font-family:var(--display);font-stretch:118%;font-weight:800;font-size:15px;letter-spacing:.04em;width:fit-content;padding:4px 10px;background:var(--ink);color:var(--bg)}
+.org h3{font-family:var(--display);font-stretch:105%;font-weight:700;font-size:20px;line-height:1.25}
+.org .role{font-family:var(--mono);font-size:13px;color:var(--box-text)}
+.org p{font-size:15px;color:var(--muted)}
+
+.org-head{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.seal{font-family:var(--display);font-stretch:118%;font-weight:800;font-size:15px;letter-spacing:.04em;padding:6px 12px;background:var(--lane);color:var(--lane-fg);flex:none}
+.org-name{font-family:var(--display);font-stretch:105%;font-weight:700;font-size:21px;line-height:1.25}
+.role{display:block;font-family:var(--mono);font-size:13px;color:var(--box-text);margin-top:2px}
+.org-head+.prose{margin-top:14px}
+.org-work{margin-top:24px;border-top:1px solid var(--line)}
+.org-work>li:first-child{padding-top:20px}
+
+.btn{appearance:none;cursor:pointer;font:600 14px var(--body);padding:9px 16px;border-radius:4px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink)}
+.btn:hover{border-color:var(--ink)}
+.btn.primary{background:var(--box);border-color:var(--box);color:var(--box-ink)}
+.btn.primary:hover{filter:brightness(1.05)}
+.btn.danger{color:var(--stop);border-color:color-mix(in srgb,var(--stop) 45%,transparent);background:transparent}
+.btn:disabled{opacity:.55;cursor:default}
+.cert-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+.cert-status{color:var(--muted);font-size:15px;max-width:60ch}
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px}
+.cert{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);min-width:0;transition:border-color .15s}
+.cert:hover{border-color:var(--ink)}
+.cert:focus-visible{outline:2px solid var(--box);outline-offset:3px}
+.thumb{aspect-ratio:4/3;max-width:100%;background:var(--bg);display:grid;place-items:center;overflow:hidden;border-bottom:1px solid var(--line);position:relative}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb .pdf,.thumb .missing{font-family:var(--mono);font-size:12px;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:6px}
+.thumb .pdf b{font-family:var(--display);font-stretch:118%;font-weight:800;font-size:28px;color:var(--ink);border:2.5px solid var(--box);padding:4px 10px}
+.cert .ct{padding:14px 16px 16px;display:flex;flex-direction:column;gap:4px}
+.cert .ct .kind{margin:0}
+.cert h3{font-family:var(--display);font-stretch:105%;font-weight:700;font-size:16px;line-height:1.3}
+.cert p{font-size:13.5px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.empty{border:2px dashed var(--line);padding:32px;text-align:center;color:var(--muted);grid-column:1/-1}
+
+.sheet{border:0;padding:0;background:transparent;max-width:min(920px,calc(100vw - 32px));width:100%;color:var(--ink)}
+.sheet::backdrop{background:rgba(10,12,15,.6)}
+.sheet-in{position:relative;background:var(--paper);border:2.5px solid var(--box);padding:24px;max-height:calc(100vh - 48px);overflow:auto}
+.x{position:absolute;top:8px;right:10px;appearance:none;border:0;background:none;color:var(--muted);font-size:28px;line-height:1;cursor:pointer;padding:4px 8px}
+.x:hover{color:var(--ink)}
+#cert-view .sheet-in{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:24px}
+.cv-media{background:var(--bg);display:grid;place-items:center;min-height:240px}
+.cv-media img{max-width:100%;max-height:70vh;display:block}
+.cv-text{display:flex;flex-direction:column;gap:8px;padding-right:20px;min-width:0}
+.cv-text h3{font-family:var(--display);font-stretch:105%;font-weight:700;font-size:22px;line-height:1.25}
+.cv-desc{white-space:pre-line;font-size:15px;color:var(--muted)}
+.cv-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.cv-actions a.btn{text-decoration:none;display:inline-block}
+#cert-edit{max-width:min(560px,calc(100vw - 32px))}
+.form{display:flex;flex-direction:column;gap:14px}
+.form h3{font-family:var(--display);font-stretch:105%;font-weight:700;font-size:22px}
+.field{display:flex;flex-direction:column;gap:5px;font-size:13px;font-weight:600;min-width:0}
+.field small{font-weight:400;color:var(--muted)}
+.field input,.field textarea{font:400 15px var(--body);color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:4px;padding:9px 11px;width:100%}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--box)}
+.row2{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:12px}
+.form-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.spacer{flex:1}
+.form-msg{font-size:14px;color:var(--stop);min-height:0}
+.form-msg:empty{display:none}
+.confirm{border-top:1px solid var(--line);padding-top:14px;display:flex;flex-direction:column;gap:12px;font-size:14.5px}
+@media (max-width:700px){#cert-view .sheet-in{grid-template-columns:1fr}.cv-text{padding-right:0}.row2{grid-template-columns:1fr}.sheet-in{padding:18px}}
+
+footer{border-top:1px solid var(--line);padding-block:24px 40px;font-family:var(--mono);font-size:12px;color:var(--faint)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (max-width:820px){
+  .block{grid-template-columns:1fr;gap:18px}
+  .feature,.orgs{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .hero{padding-block:36px 32px}
+  .frame{margin-top:44px;padding:10px 14px 14px}
+  .rail>li{grid-template-columns:1fr}
+  .figs{grid-template-columns:1fr;gap:16px}
+  .tab{padding-right:18px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .frame{animation:lock .7s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes lock{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(-40px -20px -20px -20px)}}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-top"><span>Portfolio · 2026</span><span>Metro Manila, PH</span></div>
+    <div class="frame">
+      <span class="tag">ai_engineer 0.98</span>
+      <h1><span>Ethyl Joy</span><span>Badiang</span></h1>
+    </div>
+    <p class="lede">I build computer vision for Philippine roads at <b>DOST-ASTI</b>, research emergency-vehicle priority at intersections at <b>Mapúa University</b>, and chair the <b>IEEE Computer Society Philippines</b>.</p>
+    <div class="hero-meta">
+      <span class="now"><i></i>Building ERV-priority traffic signals</span>
+      <span class="email"><span id="email">ethyljoy.badiang@ieee.org</span><button class="copy" id="copy-email" type="button">Copy</button></span>
+    </div>
+  </div>
+</header>
+
+<nav class="lane" aria-label="Portfolio sections">
+  <div class="wrap" role="tablist">
+    <button class="tab" role="tab" id="tab-profile" aria-controls="profile" data-tab="profile"><i class="lamp"></i>Profile</button>
+    <button class="tab" role="tab" id="tab-publications" aria-controls="publications" data-tab="publications"><i class="lamp"></i>Publications <span class="n">3</span></button>
+    <button class="tab" role="tab" id="tab-organizations" aria-controls="organizations" data-tab="organizations"><i class="lamp"></i>Organizations <span class="n">2</span></button>
+    <button class="tab" role="tab" id="tab-certificates" aria-controls="certificates" data-tab="certificates"><i class="lamp"></i>Certificates <span class="n" id="cert-count"></span></button>
+  </div>
+</nav>
+
+<main class="wrap">
+  <!-- PROFILE -->
+  <section class="panel" id="profile" role="tabpanel" aria-labelledby="tab-profile">
+    <div class="block">
+      <h2>About</h2>
+      <div class="body">
+        <p class="intro">Hi, I'm Joy. I teach machines to <em>see traffic</em> the way it actually moves on Philippine streets.</p>
+        <div class="prose">
+          <p>At DOST-ASTI I build and fine-tune detection models for traffic monitoring, lead data engineering on datasets from our stakeholders, and supervise interns. I also teach undergraduate Python as part-time faculty at Mapúa University.</p>
+          <p>My graduate research, as a DOST-ERDT scholar, is a vision-based traffic signal that spots emergency response vehicles at T-junctions and gives them the green. Outside the lab I lead IEEE CS Philippines, bringing topics like quantum computing and smart cities to students around the country.</p>
+        </div>
+        <div class="tools"><span class="pill">YOLO11</span><span class="pill">Swin Transformer</span><span class="pill">Python</span><span class="pill">CVAT</span><span class="pill">RAG</span><span class="pill">Data engineering</span><span class="pill">Edge AI</span><span class="pill">C-V2X</span></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>Featured</h2>
+      <div class="body">
+        <div class="feature">
+          <div class="feat"><span class="kind led">Chair · 2025 – 2027</span><h3>IEEE Computer Society Philippines</h3><p>Leading the chapter's national programs for students and young professionals.</p><span class="foot">Organization</span></div>
+          <div class="feat"><span class="kind">Paper · ISMAC 2025</span><h3><a href="https://doi.org/10.1109/ISMAC65024.2025.11175931" target="_blank" rel="noopener">Vehicle counting and detection in the Philippines</a></h3><p>Data processing and augmentation techniques for local traffic footage.</p><span class="foot">IEEE · primary author</span></div>
+          <div class="feat"><span class="kind">Paper · HNICEM 2023</span><h3><a href="https://doi.org/10.1109/HNICEM60674.2023.10589110" target="_blank" rel="noopener">Point cloud transfer over a dynamic wireless mesh</a></h3><p>Started as my undergraduate thesis at MSU-IIT.</p><span class="foot">IEEE · primary author</span></div>
+          <div class="feat"><span class="kind led">Led · Aug 17–21, 2026</span><h3>Quantum Roadshow PH</h3><p>A five-day quantum computing roadshow for Filipino students, run by IEEE CS Philippines.</p><span class="foot">IEEE CS Philippines</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>Experience</h2>
+      <div class="body">
+        <ol class="rail">
+          <li><span class="t">Nov 2023 – now</span><div><h3>AI Engineer</h3><p class="at">DOST – Advanced Science and Technology Institute</p>
+            <ul class="pts"><li>Lead data engineering on datasets from stakeholders</li><li>Develop and fine-tune AI models for traffic detection</li><li>Build a desktop application for automated traffic monitoring</li><li>Supervise interns</li></ul></div></li>
+          <li><span class="t">Aug 2026 – now</span><div><h3>Part-Time Faculty</h3><p class="at">Mapúa University, Intramuros</p><p class="d">Teach Python programming to undergraduate students.</p></div></li>
+          <li><span class="t">Jan 2021 – Apr 2024</span><div><h3>Math and Programming Tutor</h3><p class="at">Math Olympiads Training League Inc.</p><p class="d">Coached aspiring math olympiad contestants and tutored programming one-on-one.</p></div></li>
+          <li><span class="t">Jul – Aug 2022</span><div><h3>Intern</h3><p class="at">Analog Devices Inc., Cavite</p></div></li>
+          <li><span class="t">Jul – Aug 2017</span><div><h3>Intern</h3><p class="at">University of San Jose–Recoletos Engineering Department, Cebu</p></div></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>Education</h2>
+      <div class="body">
+        <ol class="rail">
+          <li><span class="t">Ongoing</span><div><h3>MS Computer Engineering</h3><p class="at">Mapúa University · DOST-ERDT Scholar</p></div></li>
+          <li><span class="t">2023</span><div><h3>BS Computer Engineering, Cum Laude</h3><p class="at">MSU – Iligan Institute of Technology · DOST-SEI Merit Scholar · MSU-SASE 2019 Top 19</p></div></li>
+          <li><span class="t">2013 – 2019</span><div><h3>High Honors</h3><p class="at">Philippine Science High School – Central Mindanao Campus · DOST Scholar · Director's List</p></div></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2>Milestones</h2>
+      <div class="body">
+        <ol class="road">
+          <li><div class="y">2026</div><ul><li>Led Quantum Roadshow PH as IEEE CS Philippines Chair</li><li>Became Vice-Chair of IEEE Consumer Technology Society Philippines</li><li>Joined Mapúa University as part-time faculty</li><li>Presented SwinDetPH at ICITA 2026, Sydney</li><li>Finalized MS thesis on ERV-priority traffic signals</li></ul></li>
+          <li><div class="y">2025</div><ul><li>Published at ISMAC 2025 as primary author</li><li>Became Chair of IEEE Computer Society Philippines Chapter</li></ul></li>
+          <li><div class="y">2023</div><ul><li>Graduated BS Computer Engineering, Cum Laude</li><li>Published at IEEE HNICEM 2023 as primary author</li><li>Joined DOST-ASTI as AI Engineer</li></ul></li>
+          <li><div class="y">2019</div><ul><li>Graduated from PSHS–CMC with High Honors</li><li>Placed in the Top 19 of the MSU-SASE</li></ul></li>
+          <li><div class="y">2018</div><ul><li>Presented research at the International Conference on Environment and Forest Conservation</li></ul></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section class="panel" id="publications" role="tabpanel" aria-labelledby="tab-publications" hidden>
+    <div class="block">
+      <h2>Publications</h2>
+      <div class="body">
+        <ol class="rail">
+          <li><span class="t">2026</span><div><span class="kind">Conference paper · Primary author</span><h3>SwinDetPH: CNN and Hybrid Swin Transformer Detectors on Philippine Traffic Vehicle Classes</h3><p class="at">20th International Conference on Information Technology and Applications (ICITA 2026), Sydney, Australia · with Jocelyn F. Villaverde</p><p class="d">Proceedings published by Springer in Lecture Notes in Networks and Systems.</p><div class="chips"><span class="pill">Swin Transformer</span><span class="pill">vehicle detection</span><span class="pill">Springer LNNS</span></div></div></li>
+          <li><span class="t">2025</span><div><span class="kind">Conference paper · Primary author</span><h3>Data Processing and Augmentation Techniques for Vehicle Counting and Detection in the Philippines</h3><p class="at">International Symposium on Multimedia and Communications (ISMAC 2025) · IEEE</p><a class="doi" href="https://doi.org/10.1109/ISMAC65024.2025.11175931" target="_blank" rel="noopener">doi:10.1109/ISMAC65024.2025.11175931</a></div></li>
+          <li><span class="t">2023</span><div><span class="kind">Conference paper · Primary author</span><h3>Point Cloud Transfer using Dynamic Wireless Mesh Network</h3><p class="at">2023 IEEE 15th International Conference on Humanoid, Nanotechnology, Information Technology, Communication and Control, Environment, and Management (HNICEM)</p><a class="doi" href="https://doi.org/10.1109/HNICEM60674.2023.10589110" target="_blank" rel="noopener">doi:10.1109/HNICEM60674.2023.10589110</a></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORGANIZATIONS -->
+  <section class="panel" id="organizations" role="tabpanel" aria-labelledby="tab-organizations" hidden>
+    <div class="block">
+      <h2>IEEE Computer Society</h2>
+      <div class="body">
+        <div class="org-head"><span class="seal">IEEE CS</span><div><h3 class="org-name">IEEE Computer Society Philippines Chapter</h3><span class="role">Chair · 2025 – 2027</span></div></div>
+        <p class="prose">I lead the chapter's national programs, bringing computing topics to students and young professionals across the Philippines.</p>
+        <ol class="rail org-work">
+          <li><span class="t">Aug 17–21, 2026</span><div><span class="kind led">Led</span><h3>Quantum Roadshow PH 2026</h3><p class="d">A week-long roadshow introducing quantum computing to Filipino students, run with Bulacan State University as a partner. It included a Quantum Education Gap Analysis Workshop to map where quantum topics are missing from local curricula.</p><div class="chips"><span class="pill">quantum</span><span class="pill">education</span></div></div></li>
+          <li><span class="t">May 2026</span><div><span class="kind led">Organized</span><h3>Smart Cities GRID Talk Series</h3><p class="d">A talk series on smart cities, connecting students and professionals with researchers working on urban technology.</p><div class="chips"><span class="pill">smart cities</span></div></div></li>
+        </ol>
+      </div>
+    </div>
+    <div class="block">
+      <h2>IEEE Consumer Technology Society</h2>
+      <div class="body">
+        <div class="org-head"><span class="seal">IEEE CTS</span><div><h3 class="org-name">IEEE Consumer Technology Society Philippines Chapter</h3><span class="role">Vice-Chair · 2026 – 2028</span></div></div>
+        <p class="prose">I support the chapter's programs on consumer technology for students and young professionals.</p>
+      </div>
+    </div>
+    <div class="block">
+      <h2>Scholarships</h2>
+      <div class="body">
+        <ol class="rail">
+          <li><span class="t">MS · Mapúa</span><div><h3>DOST Engineering Research and Development for Technology (ERDT)</h3><p class="at">Graduate scholarship for engineering research</p></div></li>
+          <li><span class="t">BS · MSU-IIT</span><div><h3>DOST Science Education Institute (SEI) Merit Scholarship</h3><p class="at">Undergraduate merit scholarship in science and engineering</p></div></li>
+          <li><span class="t">2013 – 2019</span><div><h3>DOST Scholar, Philippine Science High School</h3><p class="at">PSHS System scholarship, Central Mindanao Campus</p></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATES -->
+  <section class="panel" id="certificates" role="tabpanel" aria-labelledby="tab-certificates" hidden>
+    <div class="block">
+      <h2>Certificates</h2>
+      <div class="body">
+        <div class="cert-bar">
+          <p class="cert-status" id="cert-status" role="status">Loading certificates…</p>
+          <button class="btn primary" id="cert-add" type="button" hidden>Add certificate</button>
+        </div>
+        <div class="cert-grid" id="cert-grid"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<dialog class="sheet" id="cert-view" aria-labelledby="cv-title">
+  <div class="sheet-in">
+    <button class="x" type="button" data-close aria-label="Close">×</button>
+    <div class="cv-media" id="cv-media"></div>
+    <div class="cv-text">
+      <span class="kind" id="cv-meta"></span>
+      <h3 id="cv-title"></h3>
+      <p class="cv-desc" id="cv-desc"></p>
+      <div class="cv-actions" id="cv-actions"></div>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="sheet" id="cert-edit" aria-labelledby="ce-title">
+  <form class="sheet-in form" id="cert-form" novalidate>
+    <button class="x" type="button" data-close aria-label="Close">×</button>
+    <h3 id="ce-title">Add certificate</h3>
+    <label class="field"><span>Certificate file <small>image or PDF, up to 20 MB</small></span>
+      <input type="file" id="cf-file" accept="image/png,image/jpeg,image/webp,image/gif,application/pdf"></label>
+    <label class="field"><span>Title</span><input type="text" id="cf-title" maxlength="160" placeholder="e.g. Certificate of Appreciation, Resource Speaker"></label>
+    <div class="row2">
+      <label class="field"><span>Issued by</span><input type="text" id="cf-issuer" maxlength="120" placeholder="e.g. IEEE Computer Society"></label>
+      <label class="field"><span>Date</span><input type="month" id="cf-date"></label>
+    </div>
+    <label class="field"><span>Description</span><textarea id="cf-desc" rows="4" maxlength="1200" placeholder="What it's for and what you did"></textarea></label>
+    <p class="form-msg" id="cf-msg" role="alert"></p>
+    <div class="form-actions">
+      <button class="btn danger" type="button" id="cf-delete" hidden>Delete</button>
+      <span class="spacer"></span>
+      <button class="btn" type="button" data-close>Cancel</button>
+      <button class="btn primary" type="submit" id="cf-save">Save</button>
+    </div>
+    <div class="confirm" id="cf-confirm" hidden>
+      <p>Delete this certificate and its file? This can't be undone.</p>
+      <div class="form-actions"><span class="spacer"></span><button class="btn" type="button" id="cf-keep">Keep it</button><button class="btn danger" type="button" id="cf-really">Delete</button></div>
+    </div>
+  </form>
+</dialog>
+
+<footer><div class="wrap"><span>© 2026 Ethyl Joy I. Badiang</span><span>Pagadian City → Iligan → Manila</span></div></footer>
+
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  var names=tabs.map(function(t){return t.dataset.tab});
+  var nav=document.querySelector('.lane');
+  function show(name,focus){
+    if(names.indexOf(name)<0) name='profile';
+    tabs.forEach(function(t){
+      var on=t.dataset.tab===name;
+      t.setAttribute('aria-selected',on);
+      t.tabIndex=on?0:-1;
+      document.getElementById(t.dataset.tab).hidden=!on;
+      if(on&&focus) t.focus();
+      if(on&&t.scrollIntoView) t.scrollIntoView({block:'nearest',inline:'nearest'});
+    });
+  }
+  function jump(){ if(window.scrollY>nav.offsetTop) window.scrollTo({top:nav.offsetTop}); }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){
+      if(location.hash!=='#'+t.dataset.tab) location.hash=t.dataset.tab; else show(t.dataset.tab);
+      jump();
+    });
+    t.addEventListener('keydown',function(e){
+      var d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;
+      if(!d) return;
+      var n=tabs[(i+d+tabs.length)%tabs.length];
+      location.hash=n.dataset.tab; show(n.dataset.tab,true);
+    });
+  });
+  window.addEventListener('hashchange',function(){show(location.hash.slice(1));jump()});
+  show(location.hash.slice(1));
+  if(location.hash) setTimeout(function(){window.scrollTo({top:0})},0);
+
+  var cb=document.getElementById('copy-email');
+  cb.addEventListener('click',function(){
+    var el=document.getElementById('email');
+    function done(){cb.textContent='Copied';setTimeout(function(){cb.textContent='Copy'},1500)}
+    function fallback(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);cb.textContent='Selected'}
+    try{navigator.clipboard.writeText(el.textContent).then(done,fallback)}catch(e){fallback()}
+  });
+  /* ---------- Certificates: db rows + uploaded files ---------- */
+  var grid=document.getElementById('cert-grid'), statusEl=document.getElementById('cert-status'),
+      countEl=document.getElementById('cert-count'), addBtn=document.getElementById('cert-add'),
+      viewDlg=document.getElementById('cert-view'), editDlg=document.getElementById('cert-edit'),
+      form=document.getElementById('cert-form'), msg=document.getElementById('cf-msg');
+  var state={certs:[],loaded:false,canEdit:false,db:null,assets:null,editing:null};
+  var MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  function fmtDate(v){ if(!v||!/^\d{4}-\d{2}$/.test(v)) return v||''; var p=v.split('-'); return MONTHS[+p[1]-1]+' '+p[0]; }
+  function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
+  function src(c){return '/_blob/'+c.asset;}
+  function isPdf(c){return c.type==='application/pdf';}
+  function closeAll(){[viewDlg,editDlg].forEach(function(d){if(d.open)d.close();});}
+  document.querySelectorAll('[data-close]').forEach(function(b){b.addEventListener('click',function(){b.closest('dialog').close();});});
+  [viewDlg,editDlg].forEach(function(d){d.addEventListener('click',function(e){if(e.target===d)d.close();});});
+
+  function media(c,big){
+    if(isPdf(c)){var w=el('div','pdf');w.appendChild(el('b',null,'PDF'));w.appendChild(el('span',null,big?'Open the file to view':'PDF certificate'));return w;}
+    var img=document.createElement('img');img.src=src(c);img.alt=c.title||'Certificate';img.loading='lazy';
+    img.onerror=function(){var m=el('div','missing',null);m.appendChild(el('span',null,'Preview unavailable'));img.replaceWith(m);};
+    return img;
+  }
+  function render(){
+    countEl.textContent=state.loaded?String(state.certs.length):'';
+    addBtn.hidden=!state.canEdit;
+    grid.textContent='';
+    if(!state.loaded) return;
+    if(!state.certs.length){
+      statusEl.textContent='';
+      grid.appendChild(el('div','empty',state.canEdit?'No certificates yet. Use "Add certificate" to upload an image or PDF with a short description.':'Certificates will appear here.'));
+      return;
+    }
+    statusEl.textContent=state.canEdit?'Visitors see these cards. Open one to edit or delete it.':'Open a certificate to see it full size.';
+    state.certs.forEach(function(c){
+      var b=el('button','cert');b.type='button';
+      var t=el('div','thumb');t.appendChild(media(c,false));b.appendChild(t);
+      var ct=el('div','ct');
+      var meta=[c.issuer,fmtDate(c.date)].filter(Boolean).join(' · ');
+      if(meta) ct.appendChild(el('span','kind',meta));
+      ct.appendChild(el('h3',null,c.title||'Untitled certificate'));
+      if(c.description) ct.appendChild(el('p',null,c.description));
+      b.appendChild(ct);
+      b.addEventListener('click',function(){openView(c);});
+      grid.appendChild(b);
+    });
+  }
+  function openView(c){
+    var m=document.getElementById('cv-media');m.textContent='';m.appendChild(media(c,true));
+    document.getElementById('cv-meta').textContent=[c.issuer,fmtDate(c.date)].filter(Boolean).join(' · ');
+    document.getElementById('cv-title').textContent=c.title||'Untitled certificate';
+    document.getElementById('cv-desc').textContent=c.description||'';
+    var a=document.getElementById('cv-actions');a.textContent='';
+    var open=el('a','btn',isPdf(c)?'Open PDF':'Open full size');open.href=src(c);open.target='_blank';open.rel='noopener';a.appendChild(open);
+    if(state.canEdit){var e=el('button','btn','Edit');e.type='button';e.addEventListener('click',function(){viewDlg.close();openEdit(c);});a.appendChild(e);}
+    viewDlg.showModal();
+  }
+  function openEdit(c){
+    state.editing=c||null; form.reset(); msg.textContent='';
+    document.getElementById('cf-confirm').hidden=true;
+    document.getElementById('ce-title').textContent=c?'Edit certificate':'Add certificate';
+    document.getElementById('cf-delete').hidden=!c;
+    document.querySelector('label.field span').firstChild.nodeValue=c?'Replace file (optional) ':'Certificate file ';
+    if(c){document.getElementById('cf-title').value=c.title||'';document.getElementById('cf-issuer').value=c.issuer||'';
+      document.getElementById('cf-date').value=c.date||'';document.getElementById('cf-desc').value=c.description||'';}
+    setBusy(false); editDlg.showModal();
+  }
+  function setBusy(on,label){var s=document.getElementById('cf-save');s.disabled=on;s.textContent=on?(label||'Saving…'):'Save';}
+  function errText(e){
+    var code=e&&e.code;
+    if(code==='too_large') return 'That file is over 20 MB. Try a smaller image or a compressed PDF.';
+    if(code==='unsupported_type') return 'Use a PNG, JPG, WebP, GIF, or PDF file.';
+    if(code==='not_granted'||code==='permission_denied') return 'Only editors of this page can change certificates.';
+    if(code==='rate_limited'||code==='resource_exhausted') return 'Too many changes at once. Wait a moment, then save again.';
+    return 'Saving failed'+(code?' ('+code+')':'')+'. Check your connection and try again.';
+  }
+  addBtn.addEventListener('click',function(){openEdit(null);});
+  form.addEventListener('submit',async function(ev){
+    ev.preventDefault(); msg.textContent='';
+    var file=document.getElementById('cf-file').files[0];
+    var title=document.getElementById('cf-title').value.trim();
+    var c=state.editing;
+    if(!c&&!file){msg.textContent='Choose the certificate file to upload.';return;}
+    if(!title){msg.textContent='Add a title so visitors know what the certificate is.';return;}
+    if(file&&file.size>20*1024*1024){msg.textContent='That file is over 20 MB. Try a smaller image or a compressed PDF.';return;}
+    var row={title:title,issuer:document.getElementById('cf-issuer').value.trim(),date:document.getElementById('cf-date').value,
+      description:document.getElementById('cf-desc').value.trim(),asset:c?c.asset:null,type:c?c.type:null,added:c?c.added:new Date().toISOString()};
+    var oldAsset=null;
+    try{
+      if(file){
+        setBusy(true,'Uploading…');
+        var t=file.type||(/\.pdf$/i.test(file.name)?'application/pdf':'');
+        var up=await state.assets.upload(file,t?{type:t}:undefined);
+        if(c) oldAsset=c.asset;
+        row.asset=up.id; row.type=up.contentType;
+      }
+      setBusy(true,'Saving…');
+      var id=c?c.id:('c'+Date.now().toString(36)+Math.random().toString(36).slice(2,6));
+      await state.db.collection('certificates').doc(id).set(row);
+      if(oldAsset){try{await state.assets.delete(oldAsset);}catch(e){}}
+      editDlg.close();
+    }catch(e){ setBusy(false); msg.textContent=errText(e); }
+  });
+  document.getElementById('cf-delete').addEventListener('click',function(){document.getElementById('cf-confirm').hidden=false;});
+  document.getElementById('cf-keep').addEventListener('click',function(){document.getElementById('cf-confirm').hidden=true;});
+  document.getElementById('cf-really').addEventListener('click',async function(){
+    var c=state.editing; if(!c) return; var b=this; b.disabled=true; b.textContent='Deleting…';
+    try{ await state.db.collection('certificates').doc(c.id).delete();
+      if(c.asset){try{await state.assets.delete(c.asset);}catch(e){}}
+      editDlg.close();
+    }catch(e){ msg.textContent=errText(e); }
+    b.disabled=false; b.textContent='Delete';
+  });
+
+  (async function initCerts(){
+    if(!window.claude||!window.claude.use){statusEl.textContent='Certificates show when this page is opened on Claude.';return;}
+    var db=await window.claude.use('db');
+    if(!db){statusEl.textContent='Sign in to Claude to view certificates.';return;}
+    state.db=db;
+    var timer=setTimeout(function(){if(!state.loaded) statusEl.textContent="Certificates can't be reached right now. They'll appear when the connection returns.";},10000);
+    db.collection('certificates').orderBy('date','desc').onSnapshot(function(snap){
+      state.certs=snap.docs.map(function(d){var v=d.data()||{};v.id=d.id;return v;}).filter(function(c){return typeof c.asset==='string'&&/^[A-Za-z0-9_-]{8,64}$/.test(c.asset);});
+      if(!snap.metadata||!snap.metadata.fromCache){clearTimeout(timer);}
+      state.loaded=true; render();
+    },function(e){clearTimeout(timer);state.loaded=true;render();statusEl.textContent="Certificates couldn't load"+(e&&e.code?' ('+e.code+')':'')+'.';});
+    var assets=await window.claude.use('assets');
+    var user=await window.claude.use('user');
+    var can=user?await user.canEdit():false;
+    state.assets=assets; state.canEdit=!!(assets&&can); render();
+  })();
+
+})();
+</script>
+</body>
+</html>
